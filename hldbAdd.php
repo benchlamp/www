@@ -6,14 +6,14 @@ $db_handle = mysqli_connect(DB_SERVER, DB_USER, DB_PASS);
 
 print "Server found <br/>";
 
-	$database = "addressbook";
+	$database = "URL_test";
 
 	$db_found = mysqli_select_db($db_handle, $database);
 
 	if ($db_found) {
 
-			$SQL = "INSERT INTO tbl_address_book (First_Name, Surname, Address)
-			VALUES ('Dougal', 'McGuire', 'Craggy Island')";
+			$SQL = "INSERT INTO url_list (URL)
+			VALUES ('http://www.reddit.com')";
 
 			$result = mysqli_query($db_handle, $SQL);
 
