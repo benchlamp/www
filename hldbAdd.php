@@ -12,16 +12,16 @@ print "Server found <br/>";
 
 	if ($db_found) {
 
-		$SQL = "SELECT * FROM tbl_address_book";
-		$result = mysqli_query($db_handle, $SQL);
-		print_r($result);
-		while ($db_field = mysqli_fetch_assoc($result)) {
+			$SQL = "INSERT INTO tbl_address_book (First_Name, Surname, Address)
+			VALUES ('Dougal', 'McGuire', 'Craggy Island')";
 
-			foreach($db_field as $val) {
-				echo $val . "<br/>";
-			}
+			$result = mysqli_query($db_handle, $SQL);
 
-		}
+			mysqli_close($db_handle);
+
+			print "Records added";
+
+		
 
 	} else {
 
