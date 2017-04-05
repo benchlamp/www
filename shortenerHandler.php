@@ -1,10 +1,14 @@
 <?php
 
+//retrieve submitted URL from $_POST function
+$URL = $_POST["mytext"];
+
+ 
 $servername = "10.16.16.1";
 $username = "bench-hu1-u-109501";
 $password = "nDfMr^hnK";
-
-
+ 
+ 
 //assign variable to open connection function
 $conn = mysqli_connect($servername, $username, $password);
  
@@ -13,12 +17,11 @@ $conn = mysqli_connect($servername, $username, $password);
 $db_found = mysqli_select_db($conn, $username);
 
 
-
-	if ($db_found) {
-
-    //assign add entry statement to variable
+if ($db_found) {
+   
+    //assign add entry statement, insert $URL retrieved from $_POST
     $SQL = "INSERT INTO url_list (URL)
-   VALUES ('http://www.reddit.com')";
+    VALUES ('$URL')";
    
     
     //run query function
@@ -31,13 +34,12 @@ $db_found = mysqli_select_db($conn, $username);
     
     //confirm to user
     print "Records added";
-
-		
-
-	} else {
-
-		print "Database not found";
-
-	}
+   
+} else {
+   
+    //error finding db
+    print "Database not found";
+   
+}
 
 ?>
